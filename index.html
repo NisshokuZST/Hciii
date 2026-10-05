@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light dark" />
+  <title>Online Member User ID Registration</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">S</div>
+      <div>
+        <p class="eyebrow">Member Portal</p>
+        <h1>Online User ID Registration</h1>
+      </div>
+    </div>
+
+    <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch theme">
+      <span id="themeIcon">☾</span>
+      <span id="themeLabel">Dark</span>
+    </button>
+  </header>
+
+  <main class="page-shell">
+    <section class="card" aria-labelledby="registrationTitle">
+      <div class="card-heading">
+        <div>
+          <p class="section-kicker">Account setup</p>
+          <h2 id="registrationTitle">Create your member account</h2>
+          <p>Please enter the information exactly as reported to the Social Security System.</p>
+        </div>
+        <span class="required-note"><b>*</b> Required fields</span>
+      </div>
+
+      <form id="registrationForm" novalidate>
+        <div class="form-grid">
+          <div class="field full">
+            <label for="crn"><span>*</span> CRN / SS Number</label>
+            <input id="crn" name="crn" inputmode="numeric" autocomplete="off"
+              placeholder="Enter your CRN or SS number" maxlength="12" required />
+            <small class="hint">Numbers only.</small>
+            <small class="error" data-error-for="crn"></small>
+          </div>
+
+          <div class="field">
+            <label for="email"><span>*</span> Email Address</label>
+            <input id="email" name="email" type="email" autocomplete="email"
+              placeholder="name@example.com" required />
+            <small class="error" data-error-for="email"></small>
+          </div>
+
+          <div class="field">
+            <label for="confirmEmail"><span>*</span> Confirm Email Address</label>
+            <input id="confirmEmail" name="confirmEmail" type="email"
+              placeholder="Re-enter your email" required />
+            <small class="error" data-error-for="confirmEmail"></small>
+          </div>
+
+          <div class="field">
+            <label for="userId"><span>*</span> Preferred User ID</label>
+            <input id="userId" name="userId" type="text" autocomplete="username"
+              placeholder="e.g. Juan_Cruz1234" minlength="8" maxlength="20" required />
+            <small class="hint">8–20 characters. Start with a letter. Letters, numbers and underscore only.</small>
+            <small class="error" data-error-for="userId"></small>
+          </div>
+
+          <div class="field">
+            <label for="confirmUserId"><span>*</span> Confirm Preferred User ID</label>
+            <input id="confirmUserId" name="confirmUserId" type="text"
+              placeholder="Re-enter your User ID" required />
+            <small class="error" data-error-for="confirmUserId"></small>
+          </div>
+
+          <div class="field">
+            <label for="lastName"><span>*</span> Surname / Last Name</label>
+            <input id="lastName" name="lastName" autocomplete="family-name"
+              placeholder="Last name" required />
+            <small class="error" data-error-for="lastName"></small>
+          </div>
+
+          <div class="field">
+            <label for="givenName"><span>*</span> Given Name</label>
+            <input id="givenName" name="givenName" autocomplete="given-name"
+              placeholder="Given name" required />
+            <small class="error" data-error-for="givenName"></small>
+          </div>
+
+          <div class="field">
+            <label for="middleName">Middle Name</label>
+            <input id="middleName" name="middleName" autocomplete="additional-name"
+              placeholder="Middle name (optional)" />
+          </div>
+
+          <div class="field">
+            <label for="birthDate"><span>*</span> Date of Birth</label>
+            <input id="birthDate" name="birthDate" type="date" required />
+            <small class="error" data-error-for="birthDate"></small>
+          </div>
+        </div>
+
+        <fieldset class="address-section">
+          <legend><span>*</span> Mailing Address (Philippine Address)</legend>
+
+          <div class="form-grid">
+            <div class="field full">
+              <label for="building">Room / Floor / Unit No. &amp; Building Name</label>
+              <input id="building" name="building" placeholder="e.g. Unit 4B, Mabini Building" />
+            </div>
+
+            <div class="field">
+              <label for="house">House / Lot &amp; Block No.</label>
+              <input id="house" name="house" placeholder="House, lot or block number" />
+            </div>
+
+            <div class="field">
+              <label for="street">Street</label>
+              <input id="street" name="street" placeholder="Street name" />
+            </div>
+
+            <div class="field full">
+              <label for="subdivision">Subdivision</label>
+              <input id="subdivision" name="subdivision" placeholder="Subdivision / village" />
+            </div>
+          </div>
+
+          <div class="location-choice" role="radiogroup" aria-label="Location type">
+            <label class="choice">
+              <input type="radio" name="locationType" value="metro-manila" checked />
+              <span>Metro Manila</span>
+            </label>
+            <label class="choice">
+              <input type="radio" name="locationType" value="province" />
+              <span>Province</span>
+            </label>
+          </div>
+
+          <div class="form-grid">
+            <div class="field full hidden" id="provinceWrap">
+              <label for="province">Province</label>
+              <input id="province" name="province" placeholder="Enter your province" />
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="reset" class="btn secondary">Clear</button>
+          <button type="submit" class="btn primary">Continue</button>
+        </div>
+
+        <div id="formStatus" class="status" role="status" aria-live="polite"></div>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>Responsive registration form demo inspired by the provided reference image.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
